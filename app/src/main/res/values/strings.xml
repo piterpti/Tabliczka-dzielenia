@@ -7,6 +7,9 @@
     <string name="menu_authors">Autorzy</string>
     <string name="menu_exit">Zamknij</string>
     <string name="lvl_level">Poziom:</string>
+    <string name="game_menu">MENU</string>
+    <string name="game_goodAnswer">Bardzo dobrze!</string>
+    <string name="game_wrongAnswer">Źle!</string>
 
     <string-array name="diffLevelArray">
         <item>1,Łatwy,10,30</item>

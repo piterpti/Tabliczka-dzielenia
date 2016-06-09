@@ -5,4 +5,7 @@
     <dimen name="menu_size">36sp</dimen>
     <dimen name="lvl_lvlTextSize">28sp</dimen>
     <dimen name="level_adapterItem">22sp</dimen>
+    <dimen name="game_answerButton">28sp</dimen>
+    <dimen name="game_taskText">32sp</dimen>
+    <dimen name="game_topMenu">20sp</dimen>
 </resources>

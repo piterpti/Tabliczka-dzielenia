@@ -15,14 +15,19 @@ import wojcik.czarek.tabliczkadzielenia.Fragments.Game;
 import wojcik.czarek.tabliczkadzielenia.Fragments.Menu;
 import wojcik.czarek.tabliczkadzielenia.Fragments.Summary;
 import wojcik.czarek.tabliczkadzielenia.Level;
+import wojcik.czarek.tabliczkadzielenia.Question;
 import wojcik.czarek.tabliczkadzielenia.R;
 import wojcik.czarek.tabliczkadzielenia.Status;
+import java.util.*;
 
 public class MyActivity extends AppCompatActivity {
+
+    public static int ALL_QUESTION_COUNT = 0;
 
     public static Level[] DIFFICULT_LEVELS;
     public static Status GAME_STATUS;
     public static Context CONTEXT;
+    public static Question[] GAME_QUESTIONS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,10 @@ public class MyActivity extends AppCompatActivity {
     {
         GAME_STATUS = new Status(null);
         LoadDifficultLevels();
+        GAME_QUESTIONS = Question.GET_QUESTIONS();
+        ArrayList<Question> arrayList = new ArrayList<>(Arrays.asList(GAME_QUESTIONS));
+        Collections.shuffle(arrayList);
+        GAME_QUESTIONS = arrayList.toArray(GAME_QUESTIONS);
     }
 
     public void NewGame(View view) {
@@ -52,7 +61,8 @@ public class MyActivity extends AppCompatActivity {
         transaction.replace(R.id.fragment_container, game, Constants.GAME_FRAGMENT_TAG);
         transaction.addToBackStack(null);
         transaction.commit();
-
+        init();
+        game.CreateGame();
     }
 
     public void LevelSelect(View view) {
@@ -83,7 +93,7 @@ public class MyActivity extends AppCompatActivity {
         summary = (Summary) getSupportFragmentManager().findFragmentByTag(Constants.SUMMARY);
         if(summary != null && summary.isVisible())
         {
-            //summary.BackToMenu();
+            summary.BackToMenu();
             callSuper = false;
         }
 
