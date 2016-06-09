@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.Menu"
+    android:weightSum="1"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <Button
+        android:text="@string/menu_play"
+        android:textSize="36sp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.25"
+        android:onClick=""/>
+    <Button
+        android:text="@string/menu_lvl"
+        android:textSize="36sp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.25"
+        android:onClick=""/>
+    <Button
+        android:text="@string/menu_authors"
+        android:textSize="36sp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.25"
+        android:onClick=""/>
+    <Button
+        android:text="@string/menu_exit"
+        android:textSize="36sp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.25"
+        android:onClick="Exit"/>
+
+</LinearLayout>

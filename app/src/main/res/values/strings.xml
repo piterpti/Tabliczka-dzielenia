@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">TabliczkaDzielenia</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_play">GRAJ</string>
+    <string name="menu_lvl">Poziom</string>
+    <string name="menu_authors">Autorzy</string>
+    <string name="menu_exit">Zamknij</string>
 </resources>
