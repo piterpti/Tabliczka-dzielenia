@@ -2,11 +2,14 @@ package wojcik.czarek.tabliczkadzielenia;
 
 import java.util.*;
 
+import wojcik.czarek.tabliczkadzielenia.Activities.Achievement;
+
 public class Status {
 
     private Level difficultLevel;
     private Question[] questionList;
     private int currentQuestion = 0;
+    private Achievement[] unlockedAchievements;
 
 
     public Status(Level difficultLevel) {
@@ -64,5 +67,16 @@ public class Status {
                 correctAnswers++;
         }
         return correctAnswers;
+    }
+
+    public Achievement [] getUnlockedAchievements(int percent)
+    {
+        Achievement [] toReturn = Achievement.GET_ACHIEVEMENTS();
+        for(Achievement a : toReturn) {
+            if(a.getPercent() <= percent) {
+                a.setIsUnlocked(true);
+            }
+        }
+        return toReturn;
     }
 }

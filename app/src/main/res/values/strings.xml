@@ -10,6 +10,9 @@
     <string name="game_menu">MENU</string>
     <string name="game_goodAnswer">Bardzo dobrze!</string>
     <string name="game_wrongAnswer">Źle!</string>
+    <string name="end_gameEnd">Koniec gry!</string>
+    <string name="end_correctAnswers">Poprawnych odp:</string>
+    <string name="end_menu">MENU</string>
 
     <string-array name="diffLevelArray">
         <item>1,Łatwy,10,30</item>
