@@ -9,5 +9,7 @@
     <dimen name="game_taskText">32sp</dimen>
     <dimen name="game_topMenu">20sp</dimen>
     <dimen name="end_endGameText">32sp</dimen>
-    <dimen name="end_correctAnsw">24sp</dimen>
+    <dimen name="end_correctAnsw">20sp</dimen>
+    <dimen name="final_text">18sp</dimen>
+    <dimen name="final_cor">36sp</dimen>
 </resources>

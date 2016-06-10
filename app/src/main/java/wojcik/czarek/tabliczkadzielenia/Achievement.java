@@ -1,4 +1,4 @@
-package wojcik.czarek.tabliczkadzielenia.Activities;
+package wojcik.czarek.tabliczkadzielenia;
 
 /**
  * Created by Piter on 09/06/2016.

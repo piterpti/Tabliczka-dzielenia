@@ -1,6 +1,7 @@
 package wojcik.czarek.tabliczkadzielenia.Fragments;
 
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -13,7 +14,9 @@ import wojcik.czarek.tabliczkadzielenia.Activities.MyActivity;
 import wojcik.czarek.tabliczkadzielenia.Adapters.FinalAdapter;
 import wojcik.czarek.tabliczkadzielenia.Constants;
 import wojcik.czarek.tabliczkadzielenia.NonScrollListView;
+import wojcik.czarek.tabliczkadzielenia.Question;
 import wojcik.czarek.tabliczkadzielenia.R;
+import java.util.*;
 
 
 public class Summary extends Fragment {
@@ -52,6 +55,7 @@ public class Summary extends Fragment {
         resultTextView.setText(result);
         FinalAdapter finalAdapter = new FinalAdapter(MyActivity.CONTEXT, MyActivity.GAME_STATUS.getUnlockedAchievements((int)percentAnswers));
         achievementList.setAdapter(finalAdapter);
+        SaveMistakes();
     }
 
     public void BackToMenu()
@@ -61,6 +65,23 @@ public class Summary extends Fragment {
         transaction.replace(R.id.fragment_container, menu, Constants.MENU_TAG);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    private void SaveMistakes() {
+        String superMemo = "";
+        Arrays.sort(MyActivity.GAME_QUESTIONS, new Comparator<Question>() {
+            @Override
+            public int compare(Question lhs, Question rhs) {
+                return Integer.valueOf(lhs.getId()).compareTo(Integer.valueOf(rhs.getId()));
+            }
+        });
+        for(Question t : MyActivity.GAME_QUESTIONS) {
+            superMemo += t.getMistakes() + ",";
+        }
+        PreferenceManager.getDefaultSharedPreferences(MyActivity.CONTEXT).edit().putString(Constants.SUPER_MEMO_SHARED, superMemo).commit();
+        ArrayList<Question> arrayList = new ArrayList<>(Arrays.asList(MyActivity.GAME_QUESTIONS));
+        Collections.shuffle(arrayList);
+        MyActivity.GAME_QUESTIONS = arrayList.toArray(MyActivity.GAME_QUESTIONS);
     }
 
 }

@@ -1,9 +1,5 @@
 package wojcik.czarek.tabliczkadzielenia;
 
-import java.util.*;
-
-import wojcik.czarek.tabliczkadzielenia.Activities.Achievement;
-
 public class Status {
 
     private Level difficultLevel;

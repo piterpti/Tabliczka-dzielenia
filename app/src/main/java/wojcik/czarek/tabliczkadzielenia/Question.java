@@ -6,7 +6,7 @@ import java.util.*;
 
 import wojcik.czarek.tabliczkadzielenia.Activities.MyActivity;
 
-public class Question {
+public class Question implements Comparable<Question> {
 
     private int id;
     private int first;
@@ -104,9 +104,6 @@ public class Question {
         }
         Question[] toReturn = new Question[questionList.size()];
         toReturn = questionList.toArray(toReturn);
-        for(Question q : toReturn) {
-            Log.d("blabla", q.toStringDebug());
-        }
         return toReturn;
     }
 
@@ -132,5 +129,17 @@ public class Question {
 
     public String toStringDebug() {
         return first + " / " + second + " = " + " | " + mistakes;
+    }
+
+    @Override
+    public int compareTo(Question another) {
+        if(mistakes > another.mistakes)
+            return -1;
+        else if(mistakes == another.mistakes)
+        {
+            return 0;
+        }
+        else
+            return 1;
     }
 }

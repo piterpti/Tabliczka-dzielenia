@@ -2,6 +2,7 @@ package wojcik.czarek.tabliczkadzielenia.Activities;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,11 +19,11 @@ import wojcik.czarek.tabliczkadzielenia.Level;
 import wojcik.czarek.tabliczkadzielenia.Question;
 import wojcik.czarek.tabliczkadzielenia.R;
 import wojcik.czarek.tabliczkadzielenia.Status;
+
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class MyActivity extends AppCompatActivity {
-
-    public static int ALL_QUESTION_COUNT = 0;
 
     public static Level[] DIFFICULT_LEVELS;
     public static Status GAME_STATUS;
@@ -49,9 +50,11 @@ public class MyActivity extends AppCompatActivity {
         GAME_STATUS = new Status(null);
         LoadDifficultLevels();
         GAME_QUESTIONS = Question.GET_QUESTIONS();
+        LoadSharedPreferencesToTasks();
         ArrayList<Question> arrayList = new ArrayList<>(Arrays.asList(GAME_QUESTIONS));
         Collections.shuffle(arrayList);
         GAME_QUESTIONS = arrayList.toArray(GAME_QUESTIONS);
+        Arrays.sort(GAME_QUESTIONS);
     }
 
     public void NewGame(View view) {
@@ -123,6 +126,26 @@ public class MyActivity extends AppCompatActivity {
             if(level.getId() == lastDiffLevelId) {
                 GAME_STATUS.setDifficultLevel(level);
                 level.setActive(true);
+            }
+        }
+    }
+
+    private void LoadSharedPreferencesToTasks() {
+        String superMemo = PreferenceManager.getDefaultSharedPreferences(CONTEXT).getString(Constants.SUPER_MEMO_SHARED, "");
+        if(superMemo.length() < 1) {
+            for(Question t : GAME_QUESTIONS) {
+                superMemo += "0,";
+                t.setMistakes(0);
+            }
+            PreferenceManager.getDefaultSharedPreferences(CONTEXT).edit().putString(Constants.SUPER_MEMO_SHARED, superMemo).commit();
+        }
+        else
+        {
+            int counter = 0;
+            String[] mistakes = superMemo.split(",");
+            for(Question t : GAME_QUESTIONS) {
+                t.setMistakes(Integer.valueOf(mistakes[counter]));
+                counter++;
             }
         }
     }

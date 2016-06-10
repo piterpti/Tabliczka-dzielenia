@@ -8,8 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import wojcik.czarek.tabliczkadzielenia.Activities.Achievement;
-import wojcik.czarek.tabliczkadzielenia.Level;
+import wojcik.czarek.tabliczkadzielenia.Achievement;
 import wojcik.czarek.tabliczkadzielenia.R;
 
 /**

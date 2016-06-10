@@ -14,27 +14,34 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.25"
-        android:onClick="NewGame"/>
+        android:onClick="NewGame"
+        android:background="@drawable/mybutton"
+        android:layout_marginBottom="5dp"/>
     <Button
         android:text="@string/menu_lvl"
         android:textSize="@dimen/menu_size"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.25"
-        android:onClick="LevelSelect"/>
+        android:onClick="LevelSelect"
+        android:background="@drawable/mybutton"
+        android:layout_marginBottom="5dp"/>
     <Button
         android:text="@string/menu_authors"
         android:textSize="@dimen/menu_size"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.25"
-        android:onClick="AuthorsInfo"/>
+        android:onClick="AuthorsInfo"
+        android:background="@drawable/mybutton"
+        android:layout_marginBottom="5dp"/>
     <Button
         android:text="@string/menu_exit"
         android:textSize="@dimen/menu_size"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.25"
-        android:onClick="Exit"/>
+        android:onClick="Exit"
+        android:background="@drawable/mybutton"/>
 
 </LinearLayout>

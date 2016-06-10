@@ -13,6 +13,10 @@
     <string name="end_gameEnd">Koniec gry!</string>
     <string name="end_correctAnswers">Poprawnych odp:</string>
     <string name="end_menu">MENU</string>
+    <string name="aut_authors">AUTORZY</string>
+    <string name="aut_lukaszDesc">- design aplikacji</string>
+    <string name="aut_pawelDesc">- osiągnięcia, poziomy trudności</string>
+    <string name="end_cezarDesc">- generowanie pytań i odpowiedzi</string>
 
     <string-array name="diffLevelArray">
         <item>1,Łatwy,10,30</item>
