@@ -96,7 +96,7 @@ public class Question implements Comparable<Question> {
         {
             for(int a = 1; a <= 100; a++)
             {
-                if(i % a == 0 && i / a < 10) {
+                if(i % a == 0 && i / a < 10 && i / a != 1) {
                     questionList.add(new Question(counter, i, a, 0));
                     counter++;
                 }
